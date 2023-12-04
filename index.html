@@ -6,19 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Form Validation</title>
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
   <div class="container">
-    <img src="./images/send.png" alt="">
-    <label for="Name">Full name</label>
-    <input type="text">
-    <label for="Name">Phone no</label>
-    <input type="text">
-    <label for="Name">Email</label>
-    <input type="text">
-    <label for="Name">Message</label>
-    <input type="text">
+    <form action="">
+      <img src="./images/telephone.png">
+      <div class="input-group">
+        <label for="">Full name </label>
+        <input type="text" placeholder="Enter your full name">
+      </div>
+      <div class="input-group">
+        <label for="">Phone no. </label>
+        <input type="tel" placeholder="123 456 7890">
+      </div>
+      <div class="input-group">
+        <label for="">Email </label>
+        <input type="email" placeholder="Enter your email">
+      </div>
+      <div class="input-group">
+        <label for="">Message </label>
+        <textarea placeholder="Enter your message" rows="5"></textarea>
+      </div>
+      <button>Submit</button>
+    </form>
   </div>
   <script src="./scripts.js"></script>
 </body>

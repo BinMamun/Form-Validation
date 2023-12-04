@@ -1,10 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
 }
 
 body {
   background: #01a6ff;
+}
+
+.container form {
+  width: 100%;
+  max-width: 400px;
+  margin: 100px auto;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+  padding: 30px;
+  position: relative;
+}
+
+form img {
+  height: 60px;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 50%;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+.input-group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.input-group label {
+  color: rgb(105, 105, 105);
+  flex-basis: 28%;
+}
+
+.input-group input,
+.input-group textarea {
+  flex-basis: 68%;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 10px 0;
+  border-bottom: 1px solid #999;
+}
+
+::placeholder {
+  font-size: 14px;
+}
+
+form button {
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  background: #0196e7;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  display: block;
+  margin: 30px auto 0;
+  transition: 0.3s;
+}
+
+form button:active {
+  transform: scale(90%);
+}
+
+form button:hover {
+  background: #006da8;
 }
