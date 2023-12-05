@@ -8,8 +8,29 @@ const submitButton = document.querySelector("#submit-button");
 
 
 const nameInput = document.querySelector(".js-name");
+const emailInput = document.querySelector(".js-email");
+const phoneInput = document.querySelector(".js-phone");
+const messageInput = document.querySelector(".js-message");
+
 
 nameInput.addEventListener("keyup", () => {
+  nameValidation();
+})
+
+phoneInput.addEventListener("keyup", () => {
+  phoneValidation();
+})
+
+emailInput.addEventListener("keyup", () => {
+  emailValidation();
+})
+
+messageInput.addEventListener("keydown", () => {
+  messageValidation();
+})
+
+
+function nameValidation() {
   if (nameInput.value === "") {
     nameError.innerHTML = "Name is required";
   } else if (!nameInput.value.match(/^[A-Za-z]*\s{1}/)) {
@@ -17,15 +38,10 @@ nameInput.addEventListener("keyup", () => {
   } else {
     nameError.innerHTML = `<i class="fa fa-check-circle" aria-hidden="true"></i>`;
   }
-})
+}
 
-
-const phoneInput = document.querySelector(".js-phone");
-
-phoneInput.addEventListener("keyup", () => {
+function phoneValidation() {
   const phoneInputValue = phoneInput.value;
-
-  const reg = /^\d{11}$/;
 
   if (phoneInputValue.length === 0) {
     phoneError.innerHTML = "Phone no. is required"
@@ -35,14 +51,12 @@ phoneInput.addEventListener("keyup", () => {
   } else if (phoneInputValue.match(/[A-Z]/gi)) {
     phoneError.innerHTML = "only numbers are allowd";
   }
-  else if (phoneInputValue.match(reg)) {
+  else if (phoneInputValue.match(/^\d{11}$/)) {
     phoneError.innerHTML = `<i class="fa fa-check-circle" aria-hidden="true"></i>`;
   }
-})
+}
 
-const emailInput = document.querySelector(".js-email");
-
-emailInput.addEventListener("keyup", () => {
+function emailValidation() {
   if (emailInput.value === "") {
     emailError.innerHTML = "Email is required";
   } else if (!emailInput.value.match(/^([A-Z0-9_\.])+@([A-Z0-9_\.])+\.([A-Z]){2,4}$/gi)) {
@@ -50,5 +64,17 @@ emailInput.addEventListener("keyup", () => {
   } else {
     emailError.innerHTML = `<i class="fa fa-check-circle" aria-hidden="true"></i>`;
   }
-})
+}
+
+function messageValidation() {
+  if (messageInput.value === "") {
+    messageError.innerHTML = "Message is required";
+  } else {
+    messageError.innerHTML = `<i class="fa fa-check-circle" aria-hidden="true"></i>`;
+  }
+}
+
+
+
+
 
