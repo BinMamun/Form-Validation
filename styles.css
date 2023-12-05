@@ -8,12 +8,12 @@
 }
 
 body {
-  background: #01a6ff;
+  background: #003f60;
 }
 
 .container form {
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
   margin: 100px auto;
   background: white;
   border-radius: 5px;
@@ -37,8 +37,9 @@ form img {
 .input-group {
   width: 100%;
   display: flex;
-  align-items: center;
-  margin: 20px 0;
+  align-items: end;
+  margin: 15px 0;
+  position: relative;
 }
 
 .input-group label {
@@ -48,12 +49,23 @@ form img {
 
 .input-group input,
 .input-group textarea {
-  flex-basis: 68%;
+  flex-basis: 70%;
   background: transparent;
   border: none;
   outline: none;
   padding: 10px 0;
   border-bottom: 1px solid #999;
+}
+
+.input-group span {
+  position: absolute;
+  bottom: 10px;
+  right: 17px;
+  color: red;
+}
+
+#submit-error {
+  color: red;
 }
 
 ::placeholder {
