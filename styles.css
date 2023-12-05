@@ -108,13 +108,17 @@ form button:hover {
   display: none;
 }
 
+.display-toast {
+  display: block;
+}
+
 .toast {
   width: 100%;
   background: white;
   display: flex;
   align-items: center;
   padding: 15px;
-  border-left: 5px rgb(0, 199, 86) solid;
+  border-left: 4px rgb(0, 199, 86) solid;
   border-radius: 5px;
   box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.3);
   position: relative;
@@ -122,11 +126,7 @@ form button:hover {
   animation: moveleft 0.3s linear forwards;
 }
 
-.display-toast {
-  display: block;
-}
-
-.toast span {
+.toast i {
   color: rgb(0, 199, 86);
   margin-right: 10px;
 }
@@ -146,7 +146,7 @@ form button:hover {
   content: '';
   position: absolute;
   width: 100%;
-  height: 5px;
+  height: 3px;
   left: 0;
   bottom: 0;
   background: rgb(0, 199, 86);
