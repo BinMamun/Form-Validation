@@ -105,25 +105,25 @@ form button:hover {
   right: 30px;
   width: 250px;
   height: 50px;
+  display: none;
 }
 
 .toast {
   width: 100%;
   background: white;
-  /* display: flex; */
+  display: flex;
   align-items: center;
   padding: 15px;
   border-left: 5px rgb(0, 199, 86) solid;
   border-radius: 5px;
   box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.3);
-  display: none;
   position: relative;
   transform: translateX(calc(100% + 30px));
   animation: moveleft 0.3s linear forwards;
 }
 
-.toast-open {
-  display: flex;
+.display-toast {
+  display: block;
 }
 
 .toast span {

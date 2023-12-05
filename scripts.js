@@ -2,22 +2,12 @@ const nameError = document.querySelector("#name-error");
 const phoneError = document.querySelector("#phone-error");
 const emailError = document.querySelector("#email-error");
 const messageError = document.querySelector("#message-error");
-//const submitError = document.querySelector("#submit-error");
 
 const submitButton = document.querySelector("#submit-button");
 
+const toastViewer = document.querySelector(".js-toast-box");
 
-const toastViewer = document.querySelector(".js-toast");
 
-submitButton.addEventListener("click", () => {
-  if (nameValidation() || phoneValidation() || emailValidation() || messageValidation()) {
-    toastViewer.classList.add("toast-open");
-  }
-
-  setTimeout(() => {
-    toastViewer.classList.remove("toast-open");
-  }, 3000);
-})
 
 const nameInput = document.querySelector(".js-name");
 const emailInput = document.querySelector(".js-email");
@@ -45,8 +35,10 @@ messageInput.addEventListener("keydown", () => {
 function nameValidation() {
   if (nameInput.value === "") {
     nameError.innerHTML = "Name is required";
+    return false;
   } else if (!nameInput.value.match(/^[A-Za-z]*\s{1}/)) {
     nameError.innerHTML = "Full name required";
+    return false;
   } else {
     nameError.innerHTML = `<i class="fa fa-check-circle" aria-hidden="true"></i>`;
     return true;
@@ -58,11 +50,13 @@ function phoneValidation() {
 
   if (phoneInputValue.length === 0) {
     phoneError.innerHTML = "Phone no. is required"
-  }
-  else if (phoneInputValue < 11) {
-    phoneError.innerHTML = "Minimum 11 digits"
+    return false;
+  } else if (phoneInputValue < 11) {
+    phoneError.innerHTML = "Minimum 11 digits";
+    return false;
   } else if (phoneInputValue.match(/[A-Z]/gi)) {
     phoneError.innerHTML = "only numbers are allowd";
+    return false;
   }
   else if (phoneInputValue.match(/^\d{11}$/)) {
     phoneError.innerHTML = `<i class="fa fa-check-circle" aria-hidden="true"></i>`;
@@ -73,8 +67,10 @@ function phoneValidation() {
 function emailValidation() {
   if (emailInput.value === "") {
     emailError.innerHTML = "Email is required";
+    return false;
   } else if (!emailInput.value.match(/^([A-Z0-9_\.])+@([A-Z0-9_\.])+\.([A-Z]){2,4}$/gi)) {
-    emailError.innerHTML = "Invalid email"
+    emailError.innerHTML = "Invalid email";
+    return false;
   } else {
     emailError.innerHTML = `<i class="fa fa-check-circle" aria-hidden="true"></i>`;
     return true;
@@ -84,13 +80,22 @@ function emailValidation() {
 function messageValidation() {
   if (messageInput.value === "") {
     messageError.innerHTML = "Message is required";
+    return false;
   } else {
     messageError.innerHTML = `<i class="fa fa-check-circle" aria-hidden="true"></i>`;
     return true;
   }
 }
 
+submitButton.addEventListener("click", () => {
+  if (nameValidation() && phoneValidation() && emailValidation() && messageValidation() === true) {
+    toastViewer.classList.add("display-toast");
+    console.log("Toast Display");
+  } else {
+    toastViewer.classList.remove("display-toast");
+  }
 
-
-
-
+  setTimeout(() => {
+    toastViewer.classList.remove("display-toast");
+  }, 3000);
+})
