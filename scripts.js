@@ -20,4 +20,22 @@ nameInput.addEventListener("keyup", () => {
 })
 
 
+const phoneInput = document.querySelector(".js-phone");
 
+phoneInput.addEventListener("keyup", () => {
+  const phoneInputValue = phoneInput.value;
+
+  const reg = /^\d{11}$/;
+
+  if (phoneInputValue.length === 0) {
+    phoneError.innerHTML = "Phone no. is required"
+  }
+  else if (phoneInputValue < 11) {
+    phoneError.innerHTML = "Minimum 11 digits"
+  } else if (phoneInputValue.match(/[A-Z]/gi)) {
+    phoneError.innerHTML = "only numbers are allowd";
+  }
+  else if (phoneInputValue.match(reg)) {
+    phoneError.innerHTML = `<i class="fa fa-check-circle" aria-hidden="true"></i>`;
+  }
+})
