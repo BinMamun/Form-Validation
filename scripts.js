@@ -39,3 +39,16 @@ phoneInput.addEventListener("keyup", () => {
     phoneError.innerHTML = `<i class="fa fa-check-circle" aria-hidden="true"></i>`;
   }
 })
+
+const emailInput = document.querySelector(".js-email");
+
+emailInput.addEventListener("keyup", () => {
+  if (emailInput.value === "") {
+    emailError.innerHTML = "Email is required";
+  } else if (!emailInput.value.match(/^([A-Z0-9_\.])+@([A-Z0-9_\.])+\.([A-Z]){2,4}$/gi)) {
+    emailError.innerHTML = "Invalid email"
+  } else {
+    emailError.innerHTML = `<i class="fa fa-check-circle" aria-hidden="true"></i>`;
+  }
+})
+
