@@ -2,10 +2,15 @@ const nameError = document.querySelector("#name-error");
 const phoneError = document.querySelector("#phone-error");
 const emailError = document.querySelector("#email-error");
 const messageError = document.querySelector("#message-error");
-// const submitError = document.querySelector("#submit-error");
+//const submitError = document.querySelector("#submit-error");
 
 const submitButton = document.querySelector("#submit-button");
 
+submitButton.addEventListener("click", () => {
+  if (!nameValidation() && !phoneValidation() && !emailValidation() && !messageValidation()) {
+
+  }
+})
 
 const nameInput = document.querySelector(".js-name");
 const emailInput = document.querySelector(".js-email");
