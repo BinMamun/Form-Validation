@@ -55,6 +55,7 @@ form img {
   outline: none;
   padding: 10px 0;
   border-bottom: 1px solid #999;
+  transition: 0.3s;
 }
 
 .input-group span {
@@ -62,6 +63,11 @@ form img {
   bottom: 10px;
   right: 17px;
   color: red;
+
+}
+
+.input-group span i {
+  color: green;
 }
 
 #submit-error {
