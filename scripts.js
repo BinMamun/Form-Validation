@@ -6,10 +6,17 @@ const messageError = document.querySelector("#message-error");
 
 const submitButton = document.querySelector("#submit-button");
 
-submitButton.addEventListener("click", () => {
-  if (!nameValidation() && !phoneValidation() && !emailValidation() && !messageValidation()) {
 
+const toastViewer = document.querySelector(".js-toast");
+
+submitButton.addEventListener("click", () => {
+  if (nameValidation() || phoneValidation() || emailValidation() || messageValidation()) {
+    toastViewer.classList.add("toast-open");
   }
+
+  setTimeout(() => {
+    toastViewer.classList.remove("toast-open");
+  }, 3000);
 })
 
 const nameInput = document.querySelector(".js-name");
@@ -42,6 +49,7 @@ function nameValidation() {
     nameError.innerHTML = "Full name required";
   } else {
     nameError.innerHTML = `<i class="fa fa-check-circle" aria-hidden="true"></i>`;
+    return true;
   }
 }
 
@@ -58,6 +66,7 @@ function phoneValidation() {
   }
   else if (phoneInputValue.match(/^\d{11}$/)) {
     phoneError.innerHTML = `<i class="fa fa-check-circle" aria-hidden="true"></i>`;
+    return true;
   }
 }
 
@@ -68,6 +77,7 @@ function emailValidation() {
     emailError.innerHTML = "Invalid email"
   } else {
     emailError.innerHTML = `<i class="fa fa-check-circle" aria-hidden="true"></i>`;
+    return true;
   }
 }
 
@@ -76,6 +86,7 @@ function messageValidation() {
     messageError.innerHTML = "Message is required";
   } else {
     messageError.innerHTML = `<i class="fa fa-check-circle" aria-hidden="true"></i>`;
+    return true;
   }
 }
 
